@@ -10,7 +10,11 @@
     "format": "prettier --write .",
     "lint": "eslint src --ext ts --ext tsx",
     "test": "jest",
-    "test-all": "yarn lint && yarn type-check && yarn test"
+    "test-all": "yarn lint && yarn type-check && yarn test",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "storyshots": "jest --config ./jest.config.storyshots.mjs",
+    "update-storyshots": "jest --config ./jest.config.storyshots.mjs -u"
   },
   "lint-staged": {
     "*.@(ts|tsx)": [
@@ -33,6 +37,15 @@
     "typescript": "5.1.3"
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "^7.0.23",
+    "@storybook/addon-interactions": "^7.0.23",
+    "@storybook/addon-links": "^7.0.23",
+    "@storybook/addon-storyshots": "^7.0.23",
+    "@storybook/addon-styling": "^1.3.0",
+    "@storybook/blocks": "^7.0.23",
+    "@storybook/nextjs": "^7.0.23",
+    "@storybook/react": "^7.0.23",
+    "@storybook/testing-library": "^0.0.14-next.2",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@typescript-eslint/eslint-plugin": "^5.60.0",
@@ -41,12 +54,14 @@
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-storybook": "^0.6.12",
     "husky": "^8.0.3",
     "jest": "^29.5.0",
     "jest-environment-jsdom": "^29.5.0",
     "jest-watch-typeahead": "^2.2.2",
     "lint-staged": "^13.2.2",
     "postcss-nested": "^6.0.1",
-    "prettier": "^2.8.8"
+    "prettier": "^2.8.8",
+    "storybook": "^7.0.23"
   }
 }
