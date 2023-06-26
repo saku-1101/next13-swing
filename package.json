@@ -13,8 +13,10 @@
     "test-all": "yarn lint && yarn type-check && yarn test",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "storyshots": "jest --config ./jest.config.storyshots.mjs",
-    "update-storyshots": "jest --config ./jest.config.storyshots.mjs -u"
+    "storyshots": "NODE_ENV=test jest --config ./jest.config.storyshots.mjs",
+    "update-storyshots": "NODE_ENV=test jest --config ./jest.config.storyshots.mjs -u",
+    "chromatic": "env-cmd -f .env.local npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN",
+    "build:storybook": "build-storybook -o build/storybook -s public"
   },
   "lint-staged": {
     "*.@(ts|tsx)": [
@@ -27,6 +29,7 @@
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
     "autoprefixer": "^10.4.14",
+    "env-cmd": "^10.1.0",
     "eslint": "^8.43.0",
     "eslint-config-next": "13.4.7",
     "next": "13.4.7",
@@ -50,6 +53,7 @@
     "@testing-library/react": "^14.0.0",
     "@typescript-eslint/eslint-plugin": "^5.60.0",
     "@typescript-eslint/parser": "^5.60.0",
+    "chromatic": "^6.19.9",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsx-a11y": "^6.7.1",
@@ -63,5 +67,7 @@
     "postcss-nested": "^6.0.1",
     "prettier": "^2.8.8",
     "storybook": "^7.0.23"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "next13-swing@0.1.0"
 }
