@@ -6,8 +6,9 @@ import Task, { TypeOfTask } from './Task';
 // title -- Storybook のサイドバーにあるコンポーネントを参照する方法
 // ストーリーの全体設定
 const meta: Meta<typeof Task> = {
-  title: 'Task',
+  title: 'Example/Task',
   component: Task,
+  tags: ['autodocs'],
 };
 
 export default meta;

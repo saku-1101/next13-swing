@@ -8,7 +8,7 @@ const onPinTask = (id: string) => {
   console.log(id + 'is pinned');
 };
 
-export interface Props {
+interface Props {
   task: TypeOfTask;
   onArchiveTask: typeof onArchiveTask;
   onPinTask: typeof onPinTask;

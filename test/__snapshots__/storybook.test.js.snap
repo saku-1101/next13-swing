@@ -420,3 +420,271 @@ exports[`Storyshots Example/Page Logged Out 1`] = `
   </section>
 </article>
 `;
+
+exports[`Storyshots Example/Task Archived 1`] = `
+<div
+  className="list-item TASK_ARCHIVED"
+>
+  <label
+    aria-label="archiveTask-1"
+    className="checkbox"
+    htmlFor="checked"
+  >
+    <input
+      checked={true}
+      disabled={true}
+      id="archiveTask-1"
+      name="checked"
+      type="checkbox"
+    />
+    <span
+      className="checkbox-custom"
+      onClick={[Function]}
+    />
+  </label>
+  <label
+    aria-label="Test Task"
+    className="title"
+    htmlFor="title"
+  >
+    <input
+      className="text-black"
+      name="title"
+      placeholder="Input title"
+      readOnly={true}
+      type="text"
+      value="Test Task"
+    />
+  </label>
+</div>
+`;
+
+exports[`Storyshots Example/Task Default 1`] = `
+<div
+  className="list-item TASK_INBOX"
+>
+  <label
+    aria-label="archiveTask-1"
+    className="checkbox"
+    htmlFor="checked"
+  >
+    <input
+      checked={false}
+      disabled={true}
+      id="archiveTask-1"
+      name="checked"
+      type="checkbox"
+    />
+    <span
+      className="checkbox-custom"
+      onClick={[Function]}
+    />
+  </label>
+  <label
+    aria-label="Test Task"
+    className="title"
+    htmlFor="title"
+  >
+    <input
+      className="text-black"
+      name="title"
+      placeholder="Input title"
+      readOnly={true}
+      type="text"
+      value="Test Task"
+    />
+  </label>
+  <button
+    aria-label="pinTask-1"
+    className="pin-button"
+    id="pinTask-1"
+    onClick={[Function]}
+  >
+    <span
+      className="icon-star text-black"
+    />
+  </button>
+</div>
+`;
+
+exports[`Storyshots Example/Task Pinned 1`] = `
+<div
+  className="list-item TASK_PINNED"
+>
+  <label
+    aria-label="archiveTask-1"
+    className="checkbox"
+    htmlFor="checked"
+  >
+    <input
+      checked={false}
+      disabled={true}
+      id="archiveTask-1"
+      name="checked"
+      type="checkbox"
+    />
+    <span
+      className="checkbox-custom"
+      onClick={[Function]}
+    />
+  </label>
+  <label
+    aria-label="Test Task"
+    className="title"
+    htmlFor="title"
+  >
+    <input
+      className="text-black"
+      name="title"
+      placeholder="Input title"
+      readOnly={true}
+      type="text"
+      value="Test Task"
+    />
+  </label>
+  <button
+    aria-label="pinTask-1"
+    className="pin-button"
+    id="pinTask-1"
+    onClick={[Function]}
+  >
+    <span
+      className="icon-star text-black"
+    />
+  </button>
+</div>
+`;
+
+exports[`Storyshots Task Archived 1`] = `
+<div
+  className="list-item TASK_ARCHIVED"
+>
+  <label
+    aria-label="archiveTask-1"
+    className="checkbox"
+    htmlFor="checked"
+  >
+    <input
+      checked={true}
+      disabled={true}
+      id="archiveTask-1"
+      name="checked"
+      type="checkbox"
+    />
+    <span
+      className="checkbox-custom"
+      onClick={[Function]}
+    />
+  </label>
+  <label
+    aria-label="Test Task"
+    className="title"
+    htmlFor="title"
+  >
+    <input
+      className="text-black"
+      name="title"
+      placeholder="Input title"
+      readOnly={true}
+      type="text"
+      value="Test Task"
+    />
+  </label>
+</div>
+`;
+
+exports[`Storyshots Task Default 1`] = `
+<div
+  className="list-item TASK_INBOX"
+>
+  <label
+    aria-label="archiveTask-1"
+    className="checkbox"
+    htmlFor="checked"
+  >
+    <input
+      checked={false}
+      disabled={true}
+      id="archiveTask-1"
+      name="checked"
+      type="checkbox"
+    />
+    <span
+      className="checkbox-custom"
+      onClick={[Function]}
+    />
+  </label>
+  <label
+    aria-label="Test Task"
+    className="title"
+    htmlFor="title"
+  >
+    <input
+      className="text-black"
+      name="title"
+      placeholder="Input title"
+      readOnly={true}
+      type="text"
+      value="Test Task"
+    />
+  </label>
+  <button
+    aria-label="pinTask-1"
+    className="pin-button"
+    id="pinTask-1"
+    onClick={[Function]}
+  >
+    <span
+      className="icon-star text-black"
+    />
+  </button>
+</div>
+`;
+
+exports[`Storyshots Task Pinned 1`] = `
+<div
+  className="list-item TASK_PINNED"
+>
+  <label
+    aria-label="archiveTask-1"
+    className="checkbox"
+    htmlFor="checked"
+  >
+    <input
+      checked={false}
+      disabled={true}
+      id="archiveTask-1"
+      name="checked"
+      type="checkbox"
+    />
+    <span
+      className="checkbox-custom"
+      onClick={[Function]}
+    />
+  </label>
+  <label
+    aria-label="Test Task"
+    className="title"
+    htmlFor="title"
+  >
+    <input
+      className="text-black"
+      name="title"
+      placeholder="Input title"
+      readOnly={true}
+      type="text"
+      value="Test Task"
+    />
+  </label>
+  <button
+    aria-label="pinTask-1"
+    className="pin-button"
+    id="pinTask-1"
+    onClick={[Function]}
+  >
+    <span
+      className="icon-star text-black"
+    />
+  </button>
+</div>
+`;
