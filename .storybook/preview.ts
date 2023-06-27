@@ -5,8 +5,10 @@ import { withThemeByClassName } from '@storybook/addon-styling';
 /* TODO: update import to your tailwind styles file */
 import '../src/app/globals.css';
 
+// Storybook の機能やアドオンの振る舞いをコントロールするのに使用
 const preview: Preview = {
   parameters: {
+    // アクション (呼び出しのモック) がどのように扱われるかを設定
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {

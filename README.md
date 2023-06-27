@@ -32,3 +32,25 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Commands
+
+フロントエンド開発の 3 つのモード: 自動化されたテスト (Jest)、コンポーネント開発 (Storybook)、アプリケーション自体
+
+### Run the test runner (Jest) in a terminal:
+
+```
+yarn test --watchAll
+```
+
+### Start the component explorer on port 6006:
+
+```
+yarn storybook
+```
+
+### Run the frontend app proper on port 3000:
+
+```
+yarn start
+```

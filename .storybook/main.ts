@@ -19,6 +19,9 @@ const config: StorybookConfig = {
     name: '@storybook/nextjs',
     options: {},
   },
+  features: {
+    postcss: false,
+  },
   docs: {
     autodocs: 'tag',
   },
