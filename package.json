@@ -8,7 +8,7 @@
     "start": "next start",
     "type-check": "tsc --pretty --noEmit",
     "format": "prettier --write .",
-    "lint": "eslint src --ext ts --ext tsx",
+    "lint": "next lint",
     "test": "jest",
     "test-all": "yarn lint && yarn type-check && yarn test",
     "storybook": "storybook dev -p 6006",
@@ -40,6 +40,7 @@
     "typescript": "5.1.3"
   },
   "devDependencies": {
+    "@storybook/addon-a11y": "^7.0.23",
     "@storybook/addon-essentials": "^7.0.23",
     "@storybook/addon-interactions": "^7.0.23",
     "@storybook/addon-links": "^7.0.23",

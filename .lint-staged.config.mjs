@@ -1,3 +1,5 @@
+// .eslintignoreのファイルをlint対象外にする
+
 import { ESLint } from 'eslint';
 const removeIgnoredFiles = async (files) => {
   const eslint = new ESLint();

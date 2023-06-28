@@ -1,4 +1,4 @@
-export type TypeOfTask = { id: string; title: string; state: string };
+export type TypeOfTask = { id: string; title: string; state?: string };
 
 const onArchiveTask = (id: string) => {
   console.log(id + 'is archived');
@@ -47,7 +47,7 @@ export default function Task({ task: { id, title, state }, onArchiveTask, onPinT
           aria-label={`pinTask-${id}`}
           key={`pinTask-${id}`}
         >
-          <span className={`icon-star text-black`} />
+          <span className={`icon-star`} />
         </button>
       )}
     </div>

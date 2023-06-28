@@ -4,6 +4,7 @@ import { withThemeByClassName } from '@storybook/addon-styling';
 
 /* TODO: update import to your tailwind styles file */
 import '../src/app/globals.css';
+import '../src/app/index.css';
 
 // Storybook の機能やアドオンの振る舞いをコントロールするのに使用
 const preview: Preview = {
