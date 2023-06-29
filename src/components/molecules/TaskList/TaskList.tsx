@@ -1,5 +1,8 @@
 import Task, { TypeOfTask } from '@/components/atoms/Task/Task';
 import { ReactNode } from 'react';
+import { updateTaskState } from '@/redux/slices';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks/hooks';
+import { selectOrderdInBoxTasks, selectTaskBoxData } from '@/redux/slices/taskSlice/task';
 
 interface Props {
   loading: boolean;
@@ -9,7 +12,23 @@ interface Props {
     onPinTask: (id: string) => void;
   };
 }
-export default function TaskList({ loading, tasks, events }: Props) {
+// { loading, tasks, events }: Props
+export default function TaskList() {
+  // We're retrieving our state from the store
+  const tasks = useAppSelector(selectOrderdInBoxTasks);
+
+  const { status } = useAppSelector(selectTaskBoxData);
+
+  const dispatch = useAppDispatch();
+
+  const pinTask = (value: string) => {
+    // We're dispatching the Pinned event back to our store
+    dispatch(updateTaskState({ id: value, newTaskState: 'TASK_PINNED' }));
+  };
+  const archiveTask = (value: string) => {
+    // We're dispatching the Archive event back to our store
+    dispatch(updateTaskState({ id: value, newTaskState: 'TASK_ARCHIVED' }));
+  };
   const loadingRow: ReactNode = (
     <>
       <div className='loading-item'>
@@ -21,7 +40,7 @@ export default function TaskList({ loading, tasks, events }: Props) {
     </>
   );
 
-  if (loading === true) {
+  if (status === 'idle') {
     return (
       <>
         <div className='list-items' data-testid='loading' key={'loading'}>
@@ -63,7 +82,14 @@ export default function TaskList({ loading, tasks, events }: Props) {
     <>
       <div className='list-items'>
         {orderedTasks.map((task, index) => {
-          return <Task key={index} task={task} {...events} />;
+          return (
+            <Task
+              key={index}
+              task={task}
+              onPinTask={(task) => pinTask(task)}
+              onArchiveTask={(task) => archiveTask(task)}
+            />
+          );
         })}
       </div>
     </>

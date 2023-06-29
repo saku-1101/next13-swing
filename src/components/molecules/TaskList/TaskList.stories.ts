@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import TaskList from './TaskList';
 import { Default as taskStoryData } from '@/components/atoms/Task/Task.stories';
 import { TypeOfTask } from '@/components/atoms/Task/Task';
+import { TypeOfTaskBoxData } from '@/redux/slices/taskSlice/task';
 
 const meta: Meta<typeof TaskList> = {
   title: 'Example/TaskList',
@@ -11,24 +12,30 @@ const meta: Meta<typeof TaskList> = {
     layout: 'fullscreen',
   },
 };
+
 export default meta;
 
 type Story = StoryObj<typeof TaskList>;
 
-const tasks: Array<TypeOfTask> = [
-  { ...taskStoryData.args?.task, id: '1', title: 'Task1' },
-  { ...taskStoryData.args?.task, id: '2', title: 'Task2' },
-  { ...taskStoryData.args?.task, id: '3', title: 'Task3' },
-  { ...taskStoryData.args?.task, id: '4', title: 'Task4' },
-  { ...taskStoryData.args?.task, id: '5', title: 'Task5' },
-  { ...taskStoryData.args?.task, id: '6', title: 'Task6' },
-  { ...taskStoryData.args?.task, id: '7', title: 'Task7' },
+const defaultTasks: Array<TypeOfTask> = [
+  { id: '1', title: 'Something', state: 'TASK_INBOX' },
+  { id: '2', title: 'Something more', state: 'TASK_INBOX' },
+  { id: '3', title: 'Something else', state: 'TASK_INBOX' },
+  { id: '4', title: 'Something again', state: 'TASK_INBOX' },
 ];
+
+// storybookでグローバル状態のテストをしたい時
+// 1: mockでstoreのstateを作成する．（この場合のstateはtaskbox）
+const MockedState: TypeOfTaskBoxData = {
+  tasks: defaultTasks,
+  status: 'idle',
+  error: null,
+};
 
 export const Default: Story = {
   args: {
     loading: false,
-    tasks: tasks,
+    tasks: MockedState.tasks,
   },
 };
 
@@ -36,8 +43,8 @@ export const TasksWithPinned: Story = {
   args: {
     loading: false,
     tasks: [
-      ...tasks.slice(0, 3),
-      ...tasks.slice(3, 7).map((el, index) => {
+      ...MockedState.tasks.slice(0, 3),
+      ...MockedState.tasks.slice(3, 7).map((el, index) => {
         return { ...el, state: 'TASK_PINNED' };
       }),
     ],
