@@ -54,3 +54,9 @@ yarn storybook
 ```
 yarn start
 ```
+
+### Scaffold
+
+```
+yarn scaffold --component=atoms/buttons --name=FooButton
+```
