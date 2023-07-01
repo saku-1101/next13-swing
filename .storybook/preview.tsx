@@ -1,3 +1,4 @@
+import React from 'react';
 import type { Preview } from '@storybook/react';
 
 import { withThemeByClassName } from '@storybook/addon-styling';
@@ -5,6 +6,9 @@ import { withThemeByClassName } from '@storybook/addon-styling';
 /* TODO: update import to your tailwind styles file */
 import '../src/app/globals.css';
 import '../src/app/index.css';
+
+import { Provider } from 'react-redux';
+import { store } from '../src/redux/rootStore';
 
 // Storybook の機能やアドオンの振る舞いをコントロールするのに使用
 const preview: Preview = {
@@ -29,6 +33,11 @@ const preview: Preview = {
       },
       defaultTheme: 'light',
     }),
+    (Story) => (
+      <Provider store={store}>
+        <Story />
+      </Provider>
+    ),
   ],
 };
 
