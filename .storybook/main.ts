@@ -5,11 +5,11 @@ const config: StorybookConfig = {
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
-    '@storybook/addon-interactions',
     '@storybook/addon-styling',
     '@storybook/addon-a11y',
     '@storybook/test-runner',
-    'addon-redux',
+    '@storybook/addon-interactions',
+    // 'addon-redux',
     {
       name: '@storybook/addon-styling',
       options: {

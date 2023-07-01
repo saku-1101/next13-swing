@@ -143,6 +143,144 @@ exports[`Storyshots Example/Header Logged Out 1`] = `
 </header>
 `;
 
+exports[`Storyshots Example/LoginForm Empty Form 1`] = `
+<div
+  className="w-full flex items-center justify-center"
+>
+  <div
+    className="bg-white shadow-md rounded w-1/3"
+  >
+    <div
+      className="px-4 py-3 bg-blue-500"
+    >
+      <h3
+        className="text-lg font-semibold"
+      >
+        Login
+      </h3>
+    </div>
+    <div
+      className="modal-body p-4"
+    >
+      <form>
+        <div
+          className="mb-4"
+        >
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="user_name"
+          >
+            UserName:
+          </label>
+          <input
+            className="block w-full p-2 border-2 border-blue-500 rounded"
+            id="user_name"
+            placeholder="Enter your username"
+            type="text"
+          />
+        </div>
+        <div
+          className="mb-4"
+        >
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="password"
+          >
+            Password:
+          </label>
+          <input
+            className="block w-full p-2 border-2 border-blue-500 rounded"
+            id="password"
+            placeholder="Enter your password"
+            type="password"
+          />
+        </div>
+        <div
+          className="flex justify-end"
+        >
+          <button
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            id="submit"
+            onClick={[Function]}
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Example/LoginForm Filled Form 1`] = `
+<div
+  className="w-full flex items-center justify-center"
+>
+  <div
+    className="bg-white shadow-md rounded w-1/3"
+  >
+    <div
+      className="px-4 py-3 bg-blue-500"
+    >
+      <h3
+        className="text-lg font-semibold"
+      >
+        Login
+      </h3>
+    </div>
+    <div
+      className="modal-body p-4"
+    >
+      <form>
+        <div
+          className="mb-4"
+        >
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="user_name"
+          >
+            UserName:
+          </label>
+          <input
+            className="block w-full p-2 border-2 border-blue-500 rounded"
+            id="user_name"
+            placeholder="Enter your username"
+            type="text"
+          />
+        </div>
+        <div
+          className="mb-4"
+        >
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="password"
+          >
+            Password:
+          </label>
+          <input
+            className="block w-full p-2 border-2 border-blue-500 rounded"
+            id="password"
+            placeholder="Enter your password"
+            type="password"
+          />
+        </div>
+        <div
+          className="flex justify-end"
+        >
+          <button
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            id="submit"
+            onClick={[Function]}
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Example/Page Logged In 1`] = `
 <article>
   <header>
@@ -867,6 +1005,193 @@ exports[`Storyshots Example/TaskList Default 1`] = `
       aria-label="pinTask-7"
       className="pin-button"
       id="pinTask-7"
+      onClick={[Function]}
+    >
+      <span
+        className="icon-star"
+      />
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Example/TaskList Default With Interaction 1`] = `
+<div
+  className="list-items"
+>
+  <div
+    className="list-item TASK_INBOX"
+  >
+    <label
+      aria-label="archiveTask-1"
+      className="checkbox"
+      htmlFor="checked"
+    >
+      <input
+        checked={false}
+        disabled={true}
+        id="archiveTask-1"
+        name="checked"
+        type="checkbox"
+      />
+      <span
+        className="checkbox-custom"
+        onClick={[Function]}
+      />
+    </label>
+    <label
+      aria-label="Something"
+      className="title"
+      htmlFor="title"
+    >
+      <input
+        className="text-black"
+        name="title"
+        placeholder="Input title"
+        readOnly={true}
+        type="text"
+        value="Something"
+      />
+    </label>
+    <button
+      aria-label="pinTask-1"
+      className="pin-button"
+      id="pinTask-1"
+      onClick={[Function]}
+    >
+      <span
+        className="icon-star"
+      />
+    </button>
+  </div>
+  <div
+    className="list-item TASK_INBOX"
+  >
+    <label
+      aria-label="archiveTask-2"
+      className="checkbox"
+      htmlFor="checked"
+    >
+      <input
+        checked={false}
+        disabled={true}
+        id="archiveTask-2"
+        name="checked"
+        type="checkbox"
+      />
+      <span
+        className="checkbox-custom"
+        onClick={[Function]}
+      />
+    </label>
+    <label
+      aria-label="Something more"
+      className="title"
+      htmlFor="title"
+    >
+      <input
+        className="text-black"
+        name="title"
+        placeholder="Input title"
+        readOnly={true}
+        type="text"
+        value="Something more"
+      />
+    </label>
+    <button
+      aria-label="pinTask-2"
+      className="pin-button"
+      id="pinTask-2"
+      onClick={[Function]}
+    >
+      <span
+        className="icon-star"
+      />
+    </button>
+  </div>
+  <div
+    className="list-item TASK_INBOX"
+  >
+    <label
+      aria-label="archiveTask-3"
+      className="checkbox"
+      htmlFor="checked"
+    >
+      <input
+        checked={false}
+        disabled={true}
+        id="archiveTask-3"
+        name="checked"
+        type="checkbox"
+      />
+      <span
+        className="checkbox-custom"
+        onClick={[Function]}
+      />
+    </label>
+    <label
+      aria-label="Something else"
+      className="title"
+      htmlFor="title"
+    >
+      <input
+        className="text-black"
+        name="title"
+        placeholder="Input title"
+        readOnly={true}
+        type="text"
+        value="Something else"
+      />
+    </label>
+    <button
+      aria-label="pinTask-3"
+      className="pin-button"
+      id="pinTask-3"
+      onClick={[Function]}
+    >
+      <span
+        className="icon-star"
+      />
+    </button>
+  </div>
+  <div
+    className="list-item TASK_INBOX"
+  >
+    <label
+      aria-label="archiveTask-4"
+      className="checkbox"
+      htmlFor="checked"
+    >
+      <input
+        checked={false}
+        disabled={true}
+        id="archiveTask-4"
+        name="checked"
+        type="checkbox"
+      />
+      <span
+        className="checkbox-custom"
+        onClick={[Function]}
+      />
+    </label>
+    <label
+      aria-label="Something again"
+      className="title"
+      htmlFor="title"
+    >
+      <input
+        className="text-black"
+        name="title"
+        placeholder="Input title"
+        readOnly={true}
+        type="text"
+        value="Something again"
+      />
+    </label>
+    <button
+      aria-label="pinTask-4"
+      className="pin-button"
+      id="pinTask-4"
       onClick={[Function]}
     >
       <span

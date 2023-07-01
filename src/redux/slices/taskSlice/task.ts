@@ -15,7 +15,7 @@ const defaultTasks: Array<TypeOfTask> = [
   { id: '4', title: 'Something again', state: 'TASK_INBOX' },
 ];
 
-const TaskBoxData: TypeOfTaskBoxData = {
+export const TaskBoxData: TypeOfTaskBoxData = {
   tasks: defaultTasks,
   status: 'idle',
   error: null,
@@ -34,6 +34,9 @@ const TasksSlice = createSlice({
     },
     deleteAllTasks: (state) => {
       state.tasks = [];
+    },
+    updateInitialState: (state, action: PayloadAction<TypeOfTaskBoxData>) => {
+      state = action.payload;
     },
   },
 });

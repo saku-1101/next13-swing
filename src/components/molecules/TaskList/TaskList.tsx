@@ -2,22 +2,20 @@ import Task, { TypeOfTask } from '@/components/atoms/Task/Task';
 import { ReactNode } from 'react';
 import { updateTaskState } from '@/redux/slices';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks/hooks';
-import { selectOrderdInBoxTasks, selectTaskBoxData } from '@/redux/slices/taskSlice/task';
+import { selectOrderdInBoxTasks } from '@/redux/slices/taskSlice/task';
 
 interface Props {
   loading: boolean;
-  tasks: Array<TypeOfTask>;
-  events: {
+  tasks?: Array<TypeOfTask>;
+  events?: {
     onArchiveTask: (id: string) => void;
     onPinTask: (id: string) => void;
   };
 }
 // { loading, tasks, events }: Props
-export default function TaskList() {
+export default function TaskList({ loading }: Props) {
   // We're retrieving our state from the store
   const tasks = useAppSelector(selectOrderdInBoxTasks);
-
-  const { status } = useAppSelector(selectTaskBoxData);
 
   const dispatch = useAppDispatch();
 
@@ -40,7 +38,7 @@ export default function TaskList() {
     </>
   );
 
-  if (status === 'idle') {
+  if (loading) {
     return (
       <>
         <div className='list-items' data-testid='loading' key={'loading'}>
@@ -69,19 +67,10 @@ export default function TaskList() {
     );
   }
 
-  const orderedTasks: Array<TypeOfTask> = [
-    ...tasks.filter((t) => {
-      return t.state === 'TASK_PINNED';
-    }),
-    ...tasks.filter((t) => {
-      return t.state !== 'TASK_PINNED';
-    }),
-  ];
-
   return (
     <>
       <div className='list-items'>
-        {orderedTasks.map((task, index) => {
+        {tasks.map((task, index) => {
           return (
             <Task
               key={index}
