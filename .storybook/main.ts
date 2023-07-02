@@ -8,6 +8,7 @@ const config: StorybookConfig = {
     '@storybook/addon-styling',
     '@storybook/addon-a11y',
     '@storybook/test-runner',
+    '@storybook/jest',
     '@storybook/addon-interactions',
     // 'addon-redux',
     {

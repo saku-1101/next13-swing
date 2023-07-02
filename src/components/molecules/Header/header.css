@@ -1,15 +1,14 @@
 .storybook-header {
   font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding: 15px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-.storybook-header svg {
-  display: inline-block;
-  vertical-align: top;
+  position: sticky;
+  top: 0;
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 5vh;
 }
 
 .storybook-header h1 {
@@ -29,4 +28,9 @@
   color: #333;
   font-size: 14px;
   margin-right: 10px;
+}
+
+.spacer {
+  height: 80px; /* Stickyヘッダーの高さ */
+  margin-top: -80px; /* Stickyヘッダーの高さの負の値 */
 }

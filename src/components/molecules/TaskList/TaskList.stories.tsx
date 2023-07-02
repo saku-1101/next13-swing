@@ -3,7 +3,7 @@ import TaskList from './TaskList';
 import { userEvent, within } from '@storybook/testing-library';
 
 const meta: Meta<typeof TaskList> = {
-  title: 'Example/TaskList',
+  title: 'TaskList',
   component: TaskList,
   tags: ['autodocs'],
   parameters: {

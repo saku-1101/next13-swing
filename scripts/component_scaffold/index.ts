@@ -1,6 +1,6 @@
 import { existsSync, mkdirSync, writeFileSync } from 'fs';
 
-import { createComponentTemplate, createStorybookTemplate, createStyleTemplate } from '../../templates';
+import { createComponentTemplate, createStorybookTemplate, createStyleTemplate } from '../templates';
 
 const getArgValue = (arg: string): { name: string; value: string } => {
   const initStr = arg.slice(0, 2);

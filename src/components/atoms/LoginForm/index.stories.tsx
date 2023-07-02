@@ -1,11 +1,11 @@
-import { expect } from '@storybook/jest';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { LoginForm } from '.';
 import { userEvent, within } from '@storybook/testing-library';
+import { expect } from '@storybook/jest';
 
 const meta: Meta<typeof LoginForm> = {
-  title: 'Example/LoginForm',
+  title: 'LoginForm',
   component: LoginForm,
 };
 
