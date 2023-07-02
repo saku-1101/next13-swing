@@ -22,7 +22,9 @@ export default function Icons({ selectedAnimal }: IconsProps) {
   return (
     <>
       <p>Your Pet:</p>
-      <div className='w-full overflow-auto' style={{'height': '100px'}}>{regex.test(selectedAnimal) ? returnCat() : returnDog()}</div>
+      <div className='w-full overflow-auto' style={{ height: '100px' }}>
+        {regex.test(selectedAnimal) ? returnCat() : returnDog()}
+      </div>
     </>
   );
 }
