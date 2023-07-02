@@ -3,6 +3,7 @@ import { ReactNode } from 'react';
 import { updateTaskState } from '@/redux/slices';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks/hooks';
 import { selectOrderdInBoxTasks } from '@/redux/slices/taskSlice';
+import CreateNewTask from '../../atoms/CreateNewTask';
 
 interface Props {
   loading: boolean;
@@ -84,6 +85,7 @@ export default function TaskList({ loading }: Props) {
             />
           );
         })}
+        <CreateNewTask />
       </div>
     </>
   );

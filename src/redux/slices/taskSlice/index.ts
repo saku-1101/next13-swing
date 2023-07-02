@@ -32,17 +32,17 @@ const TasksSlice = createSlice({
         state.tasks[task].state = newTaskState;
       }
     },
+    addTask: (state, action: PayloadAction<TypeOfTask>) => {
+      state.tasks.push(action.payload);
+    },
     deleteAllTasks: (state) => {
       state.tasks = [];
-    },
-    updateInitialState: (state, action: PayloadAction<TypeOfTaskBoxData>) => {
-      state = action.payload;
     },
   },
 });
 
 // setter : Sliceではこのようなsetterで自動的にactionを作成してくれる
-export const { updateTaskState, deleteAllTasks } = TasksSlice.actions;
+export const { updateTaskState, deleteAllTasks, addTask } = TasksSlice.actions;
 
 export const selectTask = (state: RootState, id: string) => state.task.tasks.find((task: TypeOfTask) => task.id === id);
 export const selectOrderdInBoxTasks = (state: RootState) =>
