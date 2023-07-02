@@ -24,6 +24,8 @@ export const FilledForm: Story = {
 
     await userEvent.type(canvas.getByPlaceholderText('Enter your password'), 'sakuranopassword');
 
+    await userEvent.type(canvas.getByPlaceholderText('I want to have cats!'), 'I prefer to have dogs!');
+
     await userEvent.hover(canvas.getByRole('button'));
     await userEvent.unhover(canvas.getByRole('button'));
     await userEvent.click(canvas.getByRole('button'));
