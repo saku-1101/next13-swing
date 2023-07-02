@@ -2,7 +2,7 @@ import FinishedTask, { TypeOfTask } from '@/components/atoms/FinishedTask';
 import { ReactNode } from 'react';
 import { updateTaskState } from '@/redux/slices';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks/hooks';
-import { selectOrderdInBoxTasks } from '@/redux/slices/taskSlice/task';
+import { selectArchivedTasks } from '@/redux/slices/taskSlice';
 
 interface Props {
   loading: boolean;
@@ -15,7 +15,7 @@ interface Props {
 // { loading, tasks, events }: Props
 export default function TaskList({ loading }: Props) {
   // TODO: get archived tasks from global
-  const tasks = useAppSelector(selectOrderdInBoxTasks);
+  const tasks = useAppSelector(selectArchivedTasks);
 
   const dispatch = useAppDispatch();
 
@@ -54,7 +54,6 @@ export default function TaskList({ loading }: Props) {
       <>
         <div className='list-items' key={'empty'} data-testid='empty'>
           <div className='wrapper-message'>
-            <span className='icon-check' />
             <div className='title-message'>You have no completed tasks</div>
             <div className='subtitle-message'>Keep going 🔥</div>
           </div>
@@ -65,6 +64,7 @@ export default function TaskList({ loading }: Props) {
 
   return (
     <>
+      <p>Tasks You&apos;ve Done:</p>
       <div className='list-items'>
         {tasks.map((task, index) => {
           return <FinishedTask key={index} task={task} onRecoverTask={(task) => onRecoverTask(task)} />;

@@ -1,3 +1,4 @@
+'use client';
 export type TypeOfTask = { id: string; title: string; state?: string };
 
 const onRecoverTask = (id: string) => {

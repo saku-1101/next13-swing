@@ -2,7 +2,7 @@ import Task, { TypeOfTask } from '@/components/atoms/Task/Task';
 import { ReactNode } from 'react';
 import { updateTaskState } from '@/redux/slices';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks/hooks';
-import { selectOrderdInBoxTasks } from '@/redux/slices/taskSlice/task';
+import { selectOrderdInBoxTasks } from '@/redux/slices/taskSlice';
 
 interface Props {
   loading: boolean;
@@ -21,7 +21,11 @@ export default function TaskList({ loading }: Props) {
 
   const pinTask = (value: string) => {
     // We're dispatching the Pinned event back to our store
-    dispatch(updateTaskState({ id: value, newTaskState: 'TASK_PINNED' }));
+    if (tasks.find((t) => t.id === value)?.state !== 'TASK_PINNED') {
+      dispatch(updateTaskState({ id: value, newTaskState: 'TASK_PINNED' }));
+    } else {
+      dispatch(updateTaskState({ id: value, newTaskState: 'TASK_INBOX' }));
+    }
   };
   const archiveTask = (value: string) => {
     // We're dispatching the Archive event back to our store
