@@ -1,5 +1,5 @@
 import { TypeOfTask } from '@/components/atoms/Task/Task';
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { $CombinedState, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from '@/redux/rootStore';
 
 export interface TypeOfTaskBoxData {
@@ -22,7 +22,7 @@ export const TaskBoxData: TypeOfTaskBoxData = {
 };
 
 const TasksSlice = createSlice({
-  name: 'taskSlice',
+  name: 'task',
   initialState: TaskBoxData,
   reducers: {
     updateTaskState: (state, action: PayloadAction<{ id: string; newTaskState: string }>) => {
@@ -50,6 +50,9 @@ export const selectOrderdInBoxTasks = (state: RootState) =>
     ...state.task.tasks.filter((task) => task.state === 'TASK_PINNED'),
     ...state.task.tasks.filter((task) => task.state !== 'TASK_PINNED'),
   ].filter((t) => t.state === 'TASK_INBOX' || t.state === 'TASK_PINNED');
+export const selectArchivedTasks = (state: RootState) => [
+  ...state.task.tasks.filter((t) => t.state === 'TASK_ARCHIVED'),
+];
 export const selectTaskBoxData = (state: RootState) => state.task;
 
 export const TaskReducer = TasksSlice.reducer;

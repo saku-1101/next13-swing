@@ -1,11 +1,14 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { TaskReducer } from './slices';
+import { TaskReducer, PetReducer, UserReducer } from './slices';
 
 const combinedReducer = combineReducers({
   task: TaskReducer,
+  pet: PetReducer,
+  user: UserReducer,
 });
 export const store = configureStore({
   reducer: combinedReducer,
+  devTools: true,
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
