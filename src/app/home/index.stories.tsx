@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Home from '.';
+import Home from './page';
 import { Header } from '@/components/molecules/Header/Header';
 
 const meta: Meta<typeof Home> = {
