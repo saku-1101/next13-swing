@@ -1,6 +1,6 @@
 // import classnames from 'classnames';
 import { Div } from './styles';
-import { LoginForm } from '../../../atoms/LoginForm/index';
+import { LoginForm } from '../../atoms/LoginForm/index';
 
 export default function LoginPage() {
   return (
