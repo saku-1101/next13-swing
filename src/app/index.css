@@ -279,7 +279,7 @@ textarea {
 }
 
 .list-item .title {
-  overflow: hidden;
+  overflow: auto;
   text-overflow: ellipsis;
   white-space: nowrap;
   flex: 1;
