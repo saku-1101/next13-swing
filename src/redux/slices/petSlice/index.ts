@@ -1,15 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from '@/redux/rootStore';
 
-export const pet = 'cat';
+export const initialState = 'cat';
 
 const PetSlice = createSlice({
   name: 'pet',
-  initialState: pet,
+  initialState,
   reducers: {
-    updatePetState: (state, action: PayloadAction<string>) => {
-      state = action.payload;
-    },
+    updatePetState: (state, action: PayloadAction<string>) => (state = action.payload),
   },
 });
 

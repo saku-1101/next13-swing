@@ -3,25 +3,23 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from '@/redux/rootStore';
 
 export type User = {
-  name: string;
-  uuid: string;
-  password: string;
+  id: string;
+  username: string;
+  email: string;
 };
 
 const UserSlice = createSlice({
   name: 'user',
-  initialState: { name: ' ', uuid: ' ', password: ' ' } as User,
+  initialState: { id: '0', username: 'Jane Doe', email: 'example@mail.com' },
   reducers: {
-    updateUserState: (state, action: PayloadAction<User>) => {
-      state = action.payload;
-    },
+    updateUserState: (state, action: PayloadAction<User>) => (state = action.payload),
   },
 });
 
 // setter : Sliceではこのようなsetterで自動的にactionを作成してくれる
 export const { updateUserState } = UserSlice.actions;
 
-// export const selectTask = (state: RootState, id: string) => state.task.tasks.find((task: TypeOfTask) => task.id === id);
+export const selectUser = (state: RootState) => state.user;
 // export const selectOrderdInBoxTasks = (state: RootState) =>
 //   [
 //     ...state.task.tasks.filter((task) => task.state === 'TASK_PINNED'),
