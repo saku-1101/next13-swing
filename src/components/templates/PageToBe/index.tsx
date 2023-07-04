@@ -13,7 +13,6 @@ import { selectTasksToShow } from '@/redux/slices/taskSlice';
 import CreateNewTask from '@/components/atoms/CreateNewTask';
 import { useProfile } from '@/hooks/user/useProfile';
 import { useTasks } from '@/hooks/tasks/useTasks';
-import { supabase } from '../../../../supabase';
 import { Session } from '@supabase/supabase-js';
 import { User } from '@/redux/slices/userSlice';
 import { selectArchivedTasks } from '@/redux/slices/taskSlice';
@@ -34,13 +33,9 @@ export default function PageToBe({ session }: { session: Session | null }) {
   // get tasks from db and register it to global
   const isLoadingTasks = useTasks(user!);
 
-  const handleLogout = () => {
-    supabase.auth.signOut();
-  };
-
   return (
     <>
-      {isLoadingProfile ? 'loading' : <Header user={gUser} onLogout={handleLogout} />}
+      {isLoadingProfile ? 'loading' : <Header user={gUser} />}
       <Div>
         <div className='w-1/3 mr-20'>
           {/* rsc */}

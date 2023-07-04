@@ -1,5 +1,5 @@
-import LoginPage from '@/components/templates/LoginPage';
+import { LoginForm } from '@/components/atoms/LoginForm';
 
 export default function Login() {
-  return <LoginPage />;
+  return <LoginForm />;
 }
