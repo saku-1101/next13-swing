@@ -1,28 +1,15 @@
-import FinishedTask, { TypeOfTask } from '@/components/atoms/FinishedTask';
+import FinishedTask from '@/components/atoms/FinishedTask';
+import { TypeOfTask } from '@/components/atoms/Task/Task';
 import { ReactNode } from 'react';
-import { updateTaskState } from '@/redux/slices';
-import { useAppDispatch, useAppSelector } from '@/redux/hooks/hooks';
-import { selectArchivedTasks } from '@/redux/slices/taskSlice';
 
 interface Props {
   loading: boolean;
-  tasks?: Array<TypeOfTask>;
-  events?: {
-    onArchiveTask: (id: string) => void;
-    onPinTask: (id: string) => void;
-  };
+  tasks: Array<TypeOfTask>;
 }
 // { loading, tasks, events }: Props
-export default function TaskList({ loading }: Props) {
+export default function TaskList({ loading, tasks }: Props) {
   // TODO: get archived tasks from global
-  const tasks = useAppSelector(selectArchivedTasks);
 
-  const dispatch = useAppDispatch();
-
-  const onRecoverTask = (value: string) => {
-    // We're dispatching the Archive event back to our store
-    dispatch(updateTaskState({ id: value, newTaskState: 'TASK_INBOX' }));
-  };
   const loadingRow: ReactNode = (
     <>
       <div className='loading-item'>
@@ -67,7 +54,7 @@ export default function TaskList({ loading }: Props) {
       <p>Tasks You&apos;ve Done:</p>
       <div className='list-items'>
         {tasks.map((task, index) => {
-          return <FinishedTask key={index} task={task} onRecoverTask={(task) => onRecoverTask(task)} />;
+          return <FinishedTask key={index} task={task} />;
         })}
       </div>
     </>

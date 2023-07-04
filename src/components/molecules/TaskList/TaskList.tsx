@@ -1,9 +1,5 @@
 import Task, { TypeOfTask } from '@/components/atoms/Task/Task';
 import { ReactNode } from 'react';
-import { updateTaskState } from '@/redux/slices';
-import { useAppDispatch, useAppSelector } from '@/redux/hooks/hooks';
-import { selectOrderdInBoxTasks } from '@/redux/slices/taskSlice';
-import CreateNewTask from '../../atoms/CreateNewTask';
 
 interface Props {
   loading: boolean;
@@ -13,25 +9,8 @@ interface Props {
     onPinTask: (id: string) => void;
   };
 }
-// { loading, tasks, events }: Props
-export default function TaskList({ loading }: Props) {
-  // We're retrieving our state from the store
-  const tasks = useAppSelector(selectOrderdInBoxTasks);
 
-  const dispatch = useAppDispatch();
-
-  const pinTask = (value: string) => {
-    // We're dispatching the Pinned event back to our store
-    if (tasks.find((t) => t.id === value)?.state !== 'TASK_PINNED') {
-      dispatch(updateTaskState({ id: value, newTaskState: 'TASK_PINNED' }));
-    } else {
-      dispatch(updateTaskState({ id: value, newTaskState: 'TASK_INBOX' }));
-    }
-  };
-  const archiveTask = (value: string) => {
-    // We're dispatching the Archive event back to our store
-    dispatch(updateTaskState({ id: value, newTaskState: 'TASK_ARCHIVED' }));
-  };
+export default function TaskList({ loading, tasks }: Props) {
   const loadingRow: ReactNode = (
     <>
       <div className='loading-item'>
@@ -58,7 +37,7 @@ export default function TaskList({ loading }: Props) {
     );
   }
 
-  if (tasks.length === 0) {
+  if (tasks!.length === 0) {
     return (
       <>
         <div className='list-items' key={'empty'} data-testid='empty'>
@@ -75,17 +54,11 @@ export default function TaskList({ loading }: Props) {
   return (
     <>
       <div className='list-items'>
-        {tasks.map((task, index) => {
-          return (
-            <Task
-              key={index}
-              task={task}
-              onPinTask={(task) => pinTask(task)}
-              onArchiveTask={(task) => archiveTask(task)}
-            />
-          );
+        {tasks!.map((task, index) => {
+          if (task.state !== 'TASK_ARCHIVED') {
+            return <Task key={index} task={task} />;
+          }
         })}
-        <CreateNewTask />
       </div>
     </>
   );

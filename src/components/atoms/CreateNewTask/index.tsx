@@ -1,20 +1,17 @@
 // import classnames from 'classnames';
 import { useState } from 'react';
 import { Button } from '../Button/Button';
-import { useDispatch } from 'react-redux';
-import { addTask } from '@/redux/slices/taskSlice';
-
-export type CreateNewTaskProps = {
-  name: string;
-};
+import { useAppDispatch, useAppSelector } from '@/redux/hooks/hooks';
+import { addTaskToDb } from '@/redux/slices/taskSlice';
+import { selectUser } from '@/redux/slices/userSlice';
 
 export default function CreateNewTask() {
   const [title, setTitle] = useState('');
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
+  const user = useAppSelector(selectUser);
+
   const handleAddTask = () => {
-    // dbに登録
-    // グローバルにも登録
-    dispatch(addTask({ id: '', title: title, state: 'TASK_INBOX' }));
+    dispatch(addTaskToDb(title, user.id));
   };
   return (
     <div className={`list-item`}>

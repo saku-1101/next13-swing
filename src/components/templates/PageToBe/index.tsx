@@ -16,12 +16,16 @@ import { useTasks } from '@/hooks/tasks/useTasks';
 import { supabase } from '../../../../supabase';
 import { Session } from '@supabase/supabase-js';
 import { User } from '@/redux/slices/userSlice';
+import { selectArchivedTasks } from '@/redux/slices/taskSlice';
 
 export default function PageToBe({ session }: { session: Session | null }) {
-  // TODO: get selected animal from global
-  const { pet } = useAppSelector(selectPet);
+  // get globals to pass to each components
+  const pet = useAppSelector(selectPet);
   const gUser: User = useAppSelector(selectUser);
+  const tasksToShow = useAppSelector(selectTasksToShow);
+  const archivedTasks = useAppSelector(selectArchivedTasks);
 
+  // get user in the current session
   const user = session?.user;
 
   // get userdata from db and register it to global
@@ -34,8 +38,6 @@ export default function PageToBe({ session }: { session: Session | null }) {
     supabase.auth.signOut();
   };
 
-  const tasksToShow = useAppSelector(selectTasksToShow);
-
   return (
     <>
       {isLoadingProfile ? 'loading' : <Header user={gUser} onLogout={handleLogout} />}
@@ -44,7 +46,7 @@ export default function PageToBe({ session }: { session: Session | null }) {
           {/* rsc */}
           <Icons selectedAnimal={pet} />
           {/* rsc */}
-          {isLoadingTasks ? 'loading...' : <FinishedTaskList loading={false} />}
+          {isLoadingTasks ? 'loading...' : <FinishedTaskList loading={false} tasks={archivedTasks} />}
         </div>
         <div className='w-2/3 flex flex-col'>
           <div className='flex md:flex-row flex-col'>
