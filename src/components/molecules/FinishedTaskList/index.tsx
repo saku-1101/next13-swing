@@ -1,5 +1,5 @@
 import FinishedTask from '@/components/atoms/FinishedTask';
-import { TypeOfTask } from '@/components/atoms/Task/Task';
+import { TypeOfTask } from '@/redux/types';
 import { ReactNode } from 'react';
 
 interface Props {

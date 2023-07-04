@@ -6,23 +6,20 @@ import TaskList from '../../molecules/TaskList/TaskList';
 import FinishedTaskList from '../../molecules/FinishedTaskList';
 import Icons from '../../atoms/Icons/index';
 import { useAppSelector } from '@/redux/hooks/hooks';
-import { selectPet } from '@/redux/slices/petSlice';
-import { selectUser } from '@/redux/slices/userSlice';
+import { petSelectors, userSelectors, taskSelectors } from '@/redux/slices';
 import { Header } from '@/components/molecules/Header/Header';
-import { selectTasksToShow } from '@/redux/slices/taskSlice';
 import CreateNewTask from '@/components/atoms/CreateNewTask';
 import { useProfile } from '@/hooks/user/useProfile';
 import { useTasks } from '@/hooks/tasks/useTasks';
 import { Session } from '@supabase/supabase-js';
 import { User } from '@/redux/slices/userSlice';
-import { selectArchivedTasks } from '@/redux/slices/taskSlice';
 
 export default function PageToBe({ session }: { session: Session | null }) {
   // get globals to pass to each components
-  const pet = useAppSelector(selectPet);
-  const gUser: User = useAppSelector(selectUser);
-  const tasksToShow = useAppSelector(selectTasksToShow);
-  const archivedTasks = useAppSelector(selectArchivedTasks);
+  const pet = useAppSelector(petSelectors.selectPet);
+  const gUser: User = useAppSelector(userSelectors.selectUser);
+  const tasksToShow = useAppSelector(taskSelectors.selectTasksToShow);
+  const archivedTasks = useAppSelector(taskSelectors.selectArchivedTasks);
 
   // get user in the current session
   const user = session?.user;

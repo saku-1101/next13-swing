@@ -1,7 +1,7 @@
 import { useState, useCallback, useEffect, SetStateAction } from 'react';
 import { supabase } from '../../../supabase';
 import { useAppDispatch } from '@/redux/hooks/hooks';
-import { updateUserState } from '@/redux/slices/userSlice';
+import { updateUserState } from '@/redux/slices';
 import { User } from '@supabase/auth-helpers-nextjs';
 
 export const useProfile = (user: User) => {

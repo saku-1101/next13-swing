@@ -14,6 +14,8 @@ const PetSlice = createSlice({
 // setter : Sliceではこのようなsetterで自動的にactionを作成してくれる
 export const { updatePetState } = PetSlice.actions;
 
-export const selectPet = (state: RootState) => state;
+export const petSelectors = {
+  selectPet: (state: RootState) => state.pet,
+};
 
 export const PetReducer = PetSlice.reducer;

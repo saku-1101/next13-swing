@@ -1,4 +1,4 @@
-import { TypeOfTask } from '@/components/atoms/Task/Task';
+import { TypeOfTask } from '@/redux/types';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from '@/redux/rootStore';
 
@@ -19,12 +19,8 @@ const UserSlice = createSlice({
 // setter : Sliceではこのようなsetterで自動的にactionを作成してくれる
 export const { updateUserState } = UserSlice.actions;
 
-export const selectUser = (state: RootState) => state.user;
-// export const selectOrderdInBoxTasks = (state: RootState) =>
-//   [
-//     ...state.task.tasks.filter((task) => task.state === 'TASK_PINNED'),
-//     ...state.task.tasks.filter((task) => task.state !== 'TASK_PINNED'),
-//   ].filter((t) => t.state === 'TASK_INBOX' || t.state === 'TASK_PINNED');
-// export const selectTaskBoxData = (state: RootState) => state.task;
+export const userSelectors = {
+  selectUser: (state: RootState) => state.user,
+};
 
 export const UserReducer = UserSlice.reducer;

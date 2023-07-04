@@ -1,6 +1,6 @@
 'use client';
 
-import { TypeOfTask } from '../Task/Task';
+import { TypeOfTask } from '@/redux/types';
 import { updateTaskState } from '@/redux/slices';
 import { useAppDispatch } from '@/redux/hooks/hooks';
 import { supabase } from '../../../../supabase';

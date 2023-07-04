@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Button } from '../../atoms/Button/Button';
 import './header.css';
-import { User } from '@/redux/slices/userSlice';
+import { User } from '@/redux/types';
 import { supabase } from '../../../../supabase';
 
 interface HeaderProps {

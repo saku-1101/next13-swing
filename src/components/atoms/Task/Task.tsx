@@ -1,8 +1,7 @@
 import { updateTaskState } from '@/redux/slices';
 import { useAppDispatch } from '@/redux/hooks/hooks';
 import { supabase } from '../../../../supabase';
-
-export type TypeOfTask = { id: string; title: string | null; state: string | null; user_id: string | null };
+import { TypeOfTask } from '@/redux/types';
 
 interface Props {
   task: TypeOfTask;

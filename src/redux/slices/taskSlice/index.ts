@@ -47,6 +47,28 @@ const TasksSlice = createSlice({
   },
 });
 
+// reducer with async
+export const addTaskToDb = (title: string, user_id: string) => {
+  return async (dispatch: AppDispatch) => {
+    try {
+      // add to db
+      const { data, error } = await supabase
+        .from('tasks')
+        .insert([{ title: title, state: 'TASK_INBOX', user_id: user_id }])
+        .select('*')
+        .order('created_at', { ascending: false })
+        .limit(1);
+      if (error) throw error;
+      const obj: TypeOfTask = { id: data[0].id, title: data[0].title!, state: data[0].state!, user_id: user_id };
+
+      // add to global
+      dispatch(addTask(obj));
+    } catch (error: any) {
+      console.log(error.message);
+    }
+  };
+};
+
 // setter : Sliceではこのようなsetterで自動的にactionを作成してくれる
 export const { updateTaskState, deleteAllTasks, addTask, initTasks, regexQuery } = TasksSlice.actions;
 
@@ -57,26 +79,6 @@ export const taskSelectors = {
       ...state.task.tasks.filter((task) => task.state === 'TASK_PINNED'),
       ...state.task.tasks.filter((task) => task.state !== 'TASK_PINNED'),
     ].filter((t) => (t.state === 'TASK_INBOX' || t.state === 'TASK_PINNED') && t.title!.match(state.task.query)),
-  addTaskToDb: (title: string, user_id: string) => {
-    return async (dispatch: AppDispatch) => {
-      try {
-        // add to db
-        const { data, error } = await supabase
-          .from('tasks')
-          .insert([{ title: title, state: 'TASK_INBOX', user_id: user_id }])
-          .select('*')
-          .order('created_at', { ascending: false })
-          .limit(1);
-        if (error) throw error;
-        const obj: TypeOfTask = { id: data[0].id, title: data[0].title!, state: data[0].state!, user_id: user_id };
-
-        // add to global
-        dispatch(addTask(obj));
-      } catch (error: any) {
-        console.log(error.message);
-      }
-    };
-  },
 };
 
 export const TaskReducer = TasksSlice.reducer;

@@ -3,12 +3,12 @@ import { useState } from 'react';
 import { Button } from '../Button/Button';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks/hooks';
 import { addTaskToDb } from '@/redux/slices/taskSlice';
-import { selectUser } from '@/redux/slices/userSlice';
+import { userSelectors } from '@/redux/slices';
 
 export default function CreateNewTask() {
   const [title, setTitle] = useState('');
   const dispatch = useAppDispatch();
-  const user = useAppSelector(selectUser);
+  const user = useAppSelector(userSelectors.selectUser);
 
   const handleAddTask = () => {
     dispatch(addTaskToDb(title, user.id));
