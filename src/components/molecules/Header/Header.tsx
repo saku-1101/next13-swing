@@ -26,11 +26,13 @@ export const Header = ({ loading, user }: HeaderProps) => {
         </div>
         <div>
           <>
-            {loading ? <span className='welcome'>
-              Loading. Hold on...
-            </span> : <span className='welcome'>
-              Welcome, <b>{user.username}</b>!
-            </span>}
+            {loading ? (
+              <span className='welcome'>Loading. Hold on...</span>
+            ) : (
+              <span className='welcome'>
+                Welcome, <b>{user.username}</b>!
+              </span>
+            )}
             <Button size='small' onClick={handleLogout} label='Log out' />
           </>
         </div>

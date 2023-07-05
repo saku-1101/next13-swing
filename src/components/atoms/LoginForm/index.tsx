@@ -1,3 +1,4 @@
+'use client';
 import { useAppDispatch } from '@/redux/hooks/hooks';
 import { updatePetState } from '@/redux/slices';
 import React, { useState } from 'react';
@@ -33,10 +34,13 @@ export function LoginForm() {
             data: {
               username: username,
             },
+            // リダイレクトリンク
+            emailRedirectTo: `${location.origin}/auth/callback`,
           },
         });
         if (error) throw error;
         console.log(data);
+        alert('📥 Email is sent. \n Please confirm if your email is correct and follow the link to enjoy the app!');
       }
     } catch (error: AuthError | unknown) {
       if (error instanceof AuthError) {
@@ -44,6 +48,7 @@ export function LoginForm() {
       }
     }
     dispatch(updatePetState(sentence));
+
     router.refresh();
   };
   return (
