@@ -11,7 +11,7 @@ const meta: Meta<typeof Home> = {
   decorators: [
     (Story) => (
       <div>
-        <Header user={{ name: 'Jane Doe' }} />
+        <Header loading={false} user={{ id: '0', username: 'Jane Doe', email: 'example@mail.com' }} />
         <Story />
       </div>
     ),

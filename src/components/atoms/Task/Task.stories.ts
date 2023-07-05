@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Task, { TypeOfTask } from './Task';
+import Task from './Task';
+import { TypeOfTask } from '@/redux/types';
 
 // Storybook にコンポーネントを認識させるには、以下の内容を含む default export を記述します:
 // component -- コンポーネント自体
@@ -18,6 +19,7 @@ const Def: TypeOfTask = {
   id: '1',
   title: 'Test Task',
   state: 'TASK_INBOX',
+  user_id: '0',
 };
 
 // テスト用の状態ごとにストーリーを生成する関数をエクスポート

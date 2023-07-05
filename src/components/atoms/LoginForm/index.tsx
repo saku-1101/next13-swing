@@ -3,6 +3,7 @@ import { updatePetState } from '@/redux/slices';
 import React, { useState } from 'react';
 import { supabase } from '../../../../supabase';
 import { AuthError } from '@supabase/supabase-js';
+import { useRouter } from 'next/navigation';
 
 export function LoginForm() {
   const [isLogin, setIsLogin] = useState(false);
@@ -11,6 +12,7 @@ export function LoginForm() {
   const [username, setUsername] = useState('');
   const [sentence, setSentence] = useState('');
   const dispatch = useAppDispatch();
+  const router = useRouter();
 
   const handleAuth = async (e: any) => {
     // 'use server';
@@ -42,11 +44,12 @@ export function LoginForm() {
       }
     }
     dispatch(updatePetState(sentence));
+    router.refresh();
   };
   return (
     <>
       <div className='w-screen h-screen flex items-center justify-center'>
-        <div className='bg-white shadow-md rounded w-1/3'>
+        <div className='bg-white shadow-md rounded md:w-1/3 w-3/4'>
           <div className='px-4 py-3 rounded bg-accent'>
             <h3 className='text-lg text-white font-semibold'>{isLogin ? 'Login' : 'Register'}</h3>
           </div>

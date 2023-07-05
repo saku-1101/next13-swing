@@ -14,7 +14,7 @@ export default function SearchBar() {
   };
   return (
     <Div>
-      <Bar>
+      <Bar className='md:w-3/4 w-4/5'>
         <input type='text' placeholder='Search...' value={query} onChange={(e) => setQuery(e.target.value)} />
         <Button label='🔎' onClick={handleSearch} />
       </Bar>

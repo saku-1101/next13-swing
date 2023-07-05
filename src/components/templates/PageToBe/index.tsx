@@ -1,7 +1,6 @@
 // import classnames from 'classnames';
 import { Div } from './styles';
 import SearchBar from '../../molecules/SearchBar/index';
-import Sorter from '../../atoms/Sorter/index';
 import TaskList from '../../molecules/TaskList/TaskList';
 import FinishedTaskList from '../../molecules/FinishedTaskList';
 import Icons from '../../atoms/Icons/index';
@@ -32,25 +31,25 @@ export default function PageToBe({ session }: { session: Session | null }) {
 
   return (
     <>
-      {isLoadingProfile ? 'loading' : <Header user={gUser} />}
-      <Div>
-        <div className='w-1/3 mr-20'>
+      <Header loading={isLoadingProfile} user={gUser} />
+      <div className='flex md:flex-row flex-col px-10'>
+        <div className='md:w-1/3 md:mr-20 md:flex-auto md:order-1 order-2'>
           {/* rsc */}
           <Icons selectedAnimal={pet} />
           {/* rsc */}
-          {isLoadingTasks ? 'loading...' : <FinishedTaskList loading={false} tasks={archivedTasks} />}
+          <FinishedTaskList loading={isLoadingTasks} tasks={archivedTasks} />
         </div>
-        <div className='w-2/3 flex flex-col'>
-          <div className='flex md:flex-row flex-col'>
-            <SearchBar />
-            <Sorter />
-          </div>
+
+        <div className='md:w-2/3 my-0 mx-0 md:flex-auto md:order-2 order-1'>
+          <SearchBar />
           <hr className='border-3 border-neutral-300 m-10 ' />
           {/* rsc */}
-          <div>{isLoadingTasks ? 'loading...' : <TaskList loading={false} tasks={tasksToShow} />}</div>
-          <CreateNewTask />
+          <div>
+            <TaskList loading={isLoadingTasks} tasks={tasksToShow} />
+            <CreateNewTask />
+          </div>
         </div>
-      </Div>
+      </div>
     </>
   );
 }

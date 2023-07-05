@@ -18,6 +18,7 @@ export const DefaultFinishedTask: Story = {
       id: '1',
       title: 'Finished Task',
       state: 'TASK_ARCHIVED',
+      user_id: '0',
     },
   },
 };

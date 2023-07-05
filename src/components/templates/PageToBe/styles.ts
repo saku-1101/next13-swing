@@ -4,7 +4,8 @@ import styled from 'styled-components';
 
 export const Div = styled.div`
   display: flex;
-  width: 100%;
+  flex-direction: row;
+  width: 100vw;
   height: 100vh;
   justify-content: center;
   align-items: start;

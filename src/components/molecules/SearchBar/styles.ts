@@ -11,7 +11,6 @@ export const Div = styled.div`
 export const Bar = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 70%;
   padding: 10px;
   background-color: #ffffff;
   border-radius: 50px;

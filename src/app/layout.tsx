@@ -1,11 +1,8 @@
-import { Provider } from 'react-redux';
 import './globals.css';
 import './index.css';
 import { Inter } from 'next/font/google';
-import { store } from '@/redux/rootStore';
 import Login from './login/pages';
-import Home from './home/page';
-import { useSession } from '@/hooks/auth/useSession';
+import HomePage from './home/page';
 import { cookies } from 'next/headers';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { Database } from '../../supabase/types';
@@ -25,7 +22,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <SetProvider>
       <html lang='en'>
-        <body className={inter.className}>{session ? <Home session={session} /> : <Login />}</body>
+        <body className={inter.className}>{session ? <HomePage session={session} /> : <Login />}</body>
       </html>
     </SetProvider>
   );

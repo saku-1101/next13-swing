@@ -2,6 +2,7 @@
 import PageToBe from '@/components/templates/PageToBe';
 import { Session } from '@supabase/supabase-js';
 
-export default function Home({ session }: { session: Session | null }) {
+// @ts-ignore
+export default function HomePage({ session }: { session: Session | null }) {
   return <PageToBe session={session} />;
 }

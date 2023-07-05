@@ -4,14 +4,18 @@ import { Button } from '../../atoms/Button/Button';
 import './header.css';
 import { User } from '@/redux/types';
 import { supabase } from '../../../../supabase';
+import { useRouter } from 'next/navigation';
 
 interface HeaderProps {
+  loading: boolean;
   user: User;
 }
 
-export const Header = ({ user }: HeaderProps) => {
+export const Header = ({ loading, user }: HeaderProps) => {
+  const router = useRouter();
   const handleLogout = () => {
     supabase.auth.signOut();
+    router.refresh();
   };
   return (
     <header>
@@ -22,9 +26,11 @@ export const Header = ({ user }: HeaderProps) => {
         </div>
         <div>
           <>
-            <span className='welcome'>
+            {loading ? <span className='welcome'>
+              Loading. Hold on...
+            </span> : <span className='welcome'>
               Welcome, <b>{user.username}</b>!
-            </span>
+            </span>}
             <Button size='small' onClick={handleLogout} label='Log out' />
           </>
         </div>
