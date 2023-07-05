@@ -1,5 +1,5 @@
 import './globals.css';
-import './index.css';
+// import './index.css';
 import { Inter } from 'next/font/google';
 import Login from './login/pages';
 import HomePage from './home/page';
